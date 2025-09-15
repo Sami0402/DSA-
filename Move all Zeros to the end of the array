@@ -1,0 +1,20 @@
+Example 1:
+Input: 1 ,0 ,2 ,3 ,0 ,4 ,0 ,1
+Output: 1 ,2 ,3 ,4 ,1 ,0 ,0 ,0
+Explanation: All the zeros are moved to the end and non-negative integers are moved to front by maintaining order
+
+Solution: Using two pointers, i will be iterate at that time j will be at no zero place once i found non-zero then swaping will be done and J will also be increamented (j++)
+def moveZeroes(self, nums: List[int]) -> None:
+        j = -1
+        n = len(nums)
+        # Step1: Find the first zero for j
+        for i in range(n):
+            if nums[i] == 0:
+                j = i
+                break
+
+        # Step2: Now swaping then increament of j
+        for i in range(j+1,n):
+            if nums[i] != 0 and nums[j]==0:
+                nums[j],nums[i] = nums[i],nums[j] #Swaping
+                j += 1 # Increament
