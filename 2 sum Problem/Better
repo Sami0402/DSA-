@@ -12,12 +12,18 @@ def checkSum(a, target):
         
         for key,value in hashM.items():
             if(rem == key):
-                return "Yes"
-              
-        hashM[a[i]] = i
+                # If we have to return "Yes/No"
+                return "Yes" 
                 
+                # If we have to return index
+                return [value, i]
+                
+        hashM[a[i]] = i
+       
+                 
                 
     return "No"
-
+    
+    
 
 print(checkSum(a,14))
