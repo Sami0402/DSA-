@@ -1,0 +1,24 @@
+def dutchSort(a):
+    mid = 0
+    low = 0
+    high = len(a) - 1
+    
+    while mid <= high:
+        
+        if a[mid] == 0:
+            a[low], a[mid] = a[mid], a[low]
+            low += 1
+            mid += 1
+            
+        elif a[mid] == 1:
+            mid += 1
+            
+        elif a[mid] == 2:
+            a[mid], a[high] = a[high], a[mid]
+            high -= 1
+        
+    print(f"sorted array: {a}") 
+        
+
+a = [0,1,0,2,1,0]
+dutchSort(a)
