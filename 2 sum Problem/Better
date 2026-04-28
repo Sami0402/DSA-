@@ -1,0 +1,23 @@
+a = [2,6,5,8,11]
+target = 14
+n = len(a)
+rem = 0
+hashM = {}
+
+def checkSum(a, target):
+    
+    for i in range(0,n):
+        
+        rem = target - a[i]
+        
+        for key,value in hashM.items():
+            if(rem == key):
+                return "Yes"
+              
+        hashM[a[i]] = i
+                
+                
+    return "No"
+
+
+print(checkSum(a,14))
