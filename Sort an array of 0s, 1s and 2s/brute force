@@ -1,0 +1,39 @@
+def merge_sort(arr):
+    if len(arr) > 1:
+        # Step 1: Divide - find the midpoint and split the array
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        # Step 2: Conquer - recursive calls to sort both halves
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        # Step 3: Combine - merge the sorted halves back together
+        i = j = k = 0
+
+        # Compare elements from left_half and right_half
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        # Check for any remaining elements in either half
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+
+data = [0,1,0,0,1,2,1,0]
+merge_sort(data)
+print(f"Sorted array: {data}")
