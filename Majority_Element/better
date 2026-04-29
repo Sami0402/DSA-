@@ -1,0 +1,16 @@
+def majElem(a):
+    n = len(a) // 2
+    hashM = {}
+    
+    for i in range(len(a)):
+        hashM[a[i]] = hashM.get(a[i], 0) + 1
+    
+    for num,count in hashM.items():
+        if count > n:
+            return num
+    
+    return -1
+
+a = [2,3,3,3,3,2,2]
+
+print(majElem(a))
