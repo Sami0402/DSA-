@@ -1,0 +1,31 @@
+def majElem(a):
+    n = len(a)
+    start = 0
+    cnt = 0
+    freq = 0
+    
+    # Moore's Voting Algorithm
+    for i in range(n):
+        
+        if a[start] == a[i]:
+            cnt += 1
+        elif a[start] != a[i] and cnt > 0:
+            cnt -= 1
+            if cnt == 0 and (i+1) < n:
+                start = i + 1
+            
+    
+    # Check if dominating elem > n//2
+    for i in range(n):
+        if a[start] == a[i]:
+            freq += 1
+    
+    if freq > n//2:
+        return a[start]
+    else:
+        return -1
+    
+
+a = [6,5,5]
+
+print(majElem(a))
