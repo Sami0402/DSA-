@@ -1,0 +1,21 @@
+def maxSubArraySum(a):
+    n = len(a)
+    maxS = float('-inf')
+    sum = 0
+    
+    for i in range(n):
+        
+        sum += a[i]
+           
+        maxS = max(maxS, sum)
+        
+        if sum < 0:
+            sum = 0
+            
+            
+    return maxS
+    
+
+a = [-2, -3, 4,-1,-2, 1,5,-3]
+
+print(maxSubArraySum(a))
