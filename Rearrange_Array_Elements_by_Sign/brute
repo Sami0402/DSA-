@@ -1,0 +1,20 @@
+def arrangeArray(a):
+    pos = []
+    neg = []
+    n = len(a)
+    
+    for i in range(n):
+        if a[i] > 0:
+            pos.append(a[i])
+        else:
+            neg.append(a[i])
+            
+    
+    for i in range(int(n/2)):
+        a[i*2] = pos[i]
+        a[i*2+1] = neg[i]
+        
+    return a
+    
+a = [3,1,-2,-5,2,-4]
+print(arrangeArray(a))
