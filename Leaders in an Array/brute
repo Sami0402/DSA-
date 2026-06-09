@@ -1,0 +1,20 @@
+def findLeaders(a):
+    result = []
+    n = len(a)
+    for i in range(n):
+        leader = True
+        
+        for j in range(i+1, n):
+            if a[j] > a[i]:
+                leader = False
+                break
+        
+        if leader == True:
+            result.append(a[i])
+            
+    return result
+    
+
+a = [10, 22, 12, 3, 0, 6]
+
+print(findLeaders(a))
