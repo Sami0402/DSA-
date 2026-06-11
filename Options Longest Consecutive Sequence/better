@@ -1,0 +1,30 @@
+def longestConSeq(a):
+    a.sort()
+    n = len(a)
+    last_smaller = float('-inf')
+    cnt = 0
+    longest = 1
+    
+    for i in range(n):
+        
+        if last_smaller == (a[i]-1) and last_smaller < a[i]:
+            last_smaller = a[i]
+            cnt += 1
+        elif last_smaller == a[i]:
+            pass
+        else:
+            last_smaller = a[i]
+            cnt = 1
+            
+        
+        
+        longest = max(longest, cnt)
+        
+        
+        
+    return longest
+        
+
+a = [1,1,1,2,2,2,3,3,4,100,100,101,102];
+
+print(longestConSeq(a))
