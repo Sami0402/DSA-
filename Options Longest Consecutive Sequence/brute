@@ -1,0 +1,29 @@
+def ls(a, x):
+    n = len(a)
+    for i in range(n):
+        
+        if x == a[i]:
+            return True
+    
+    return False
+
+def longestConSeq(a):
+    n = len(a)
+    longest = 1
+    for i in range(n):
+        
+        x = a[i]
+        cnt = 1
+        
+        while( ls(a, x+1) ):
+            x += 1
+            cnt += 1
+            
+        longest = max(longest, cnt)
+        
+    return longest
+        
+
+a = [102, 4,100, 1, 101, 4, 2, 1, 1];
+
+print(longestConSeq(a))
