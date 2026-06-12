@@ -1,1 +1,31 @@
+def setMatrixZero(a):
+    m = len(a[0])
+    n = len(a)
+    col= [0] * m
+    row = [0] * n
+    
+    for i in range(n):
+        for j in range(m):
+            if a[i][j] == 0:
+                row[i] = 1
+                col[j] = 1
+                
+    for i in range(n):
+        for j in range(m):
+            if row[i] == 1 or col[j] == 1:
+                a[i][j] = 0
+    
+    print(f"Row is : {row}")
+    print(f"Column is : {col}")
+                
+                
+matrix = [
+    [0,1,2,0],
+    [3,4,5,2],
+    [1,3,1,5]
+    ]
 
+
+setMatrixZero(matrix)
+
+print(matrix)
