@@ -1,0 +1,18 @@
+def cntSubArrSum(a):
+    n = len(a)
+    cnt = 0
+    k = 3
+    for i in range(0,n):
+        for j in range(i,n):
+            sum = 0
+            for k in range(i,j+1):
+                sum = sum + a[k]
+            if sum == k:
+                cnt += 1
+                
+    
+    return cnt
+    
+    
+a = [1,2,3,-3,1,1,1,4,2,-3]
+print(cntSubArrSum(a))
