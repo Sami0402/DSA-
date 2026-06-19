@@ -1,0 +1,35 @@
+def subArrDivByK(a):
+    k = 5
+    n = len(a)
+    result = 0
+    prefSum = 0
+    hashM = {0:1}
+    
+    """
+     Dividend = ((Divisor * Quotient) + Remainder)
+     In Our Case,
+     prefSum = ((k * n) + rem) --> e.g. In [4,5], 9 = (5*n(any integer) + 4)
+     So we will find out rem(4) if it already exist previously then for sure there will be k(5)
+    """
+    
+    # remainder
+    rem = 0
+    
+    for i in range(0, n):
+        prefSum += a[i]
+        rem =  prefSum % k
+
+        
+        if rem in hashM:
+            result += hashM.get(rem)
+            
+        hashM[rem] = hashM.get(rem, 0) + 1
+    
+    print(hashM)
+                
+    return result
+    
+    
+a = [4,5,0,-2,-3,1]
+
+print(subArrDivByK(a))
