@@ -1,0 +1,19 @@
+def subArrDivByK(a):
+    k = 5
+    n = len(a)
+    result = 0
+    
+    for i in range(n):
+        sum = 0
+        for j in range(i, n):
+            sum += a[j]
+            
+            if sum%k == 0:
+                result += 1
+                
+    return result
+    
+    
+a = [4,5,0,-2,-3,1]
+
+print(subArrDivByK(a))
