@@ -1,0 +1,30 @@
+def cntSubSum(a):
+    n = len(a)
+    k = 3
+    cnt = 0
+    prefSum = 0
+    hashM = {0:1}
+   
+    for i in range(0,n):
+        prefSum += a[i]
+
+        # Calculate Remaining 
+        rem = prefSum - k
+
+        /* 
+        If prefSum that is a same as rem occur before then that sub arr with sum k will be there
+        cause prefSum = rem + k
+        */
+        if rem in hashM:
+            cnt += hashM.get(rem)
+       
+           
+        hashM[prefSum] = hashM.get(prefSum,0) + 1
+       
+
+    return cnt
+
+
+
+a = [1,2,3,-3,1,1,1,4,2,-3]
+print(cntSubSum(a))
